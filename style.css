@@ -1,0 +1,584 @@
+/***** ESTILOS GENERALES *****/
+body {
+    font-family: 'Manrope', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+:root {
+    /* Definición de breakpoints */
+    --mobile: 576px;     /* Pantallas pequeñas */
+    --tablet: 768px;     /* Tablets */
+    --desktop: 1024px;   /* Desktop estándar */
+    --large-desktop: 1280px; /* Desktop grande (default) */
+}
+
+/* Nuevas reglas para enlaces con estilo de botón */
+a.button {
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    border: none;
+    transition: all 0.3s ease;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    justify-content: center;
+}
+
+
+/* Asegurar que los enlaces-botón mantengan el estilo al enfocar */
+a.button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(55, 126, 127, 0.5);
+}
+
+.container_fullview {
+    width: 100%;
+    height: 100%;
+}
+
+.background_00283C {
+    background-color: #00283C;
+}
+
+/* Estilos base (mobile-first) */
+.db-main-container {
+    width: 100%;
+    height: 100%;
+}
+
+.horizontal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.image-container {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__image {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    object-fit: cover;
+}
+
+.text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 20px 16px 40px;
+    max-width: 100%;
+}
+
+.sub_text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.vertical_view {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+}
+.vertical_view--mobile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.horizontal_view {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 9px;
+}
+
+.set_gap-12 {
+    gap: 12px;
+}
+
+a.button {
+    padding: 9px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+/* Media Queries (de menor a mayor) */
+
+/* 426px - 767px (Tablets pequeñas) */
+@media (min-width: 426px) {
+    .text-container {
+        padding: 20px 24px 50px;
+        max-width: 65ch;
+    }
+    
+    .horizontal-content {
+        flex-direction: row;
+        gap: 40px;
+    }
+    
+    .hero__image {
+        min-height: 350px;
+    }
+    .vertical_view--mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    a.button {
+        display: inline-flex;
+        text-decoration: none;
+        cursor: pointer;
+        font-family: 'Manrope', sans-serif;
+        padding: 12px 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        border: none;
+        transition: all 0.3s ease;
+        align-items: center;
+        gap: 8px;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* 768px - 1023px (Tablets grandes) */
+@media (min-width: 768px) {
+    .text-container {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+/* 1024px - 1280px (Laptops pequeñas) */
+@media (min-width: 1024px) {
+    .text-container {
+        padding: 100px 50px 100px 24px;
+        gap: 32px;
+    }
+    
+    .horizontal-content {
+        gap: 40px;
+    }
+}
+
+/* 1281px+ (Desktop grandes) */
+@media (min-width: 1281px) {
+    .text-container {
+        padding-right: 100px;
+        padding-left: 48px;
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+}
+
+
+
+/**************** headings style ****************/
+
+.all_h1_heading {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 58px;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 0%;
+}
+
+.all_h2_heading {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: clamp(1.2, 1.5vw, 1.3);
+    line-height: 46px;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.all_h3_heading {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: clamp(20px, 2vw, 30px);
+    line-height: clamp(1.2, 1.5vw, 1.3);
+    line-height: 40px;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.all_h4_heading {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: clamp(16px, 1.5vw, 24px);
+    line-height: 30px;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.all_h5_heading {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: clamp(14px, 1.5vw, 18px);
+    line-height: 24px;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+/**************** paragraph style ****************/
+.text-paragraph {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: clamp(14px, 1.5vw, 18px);
+    line-height: 24px;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+/********************************************************* Start section hero *********************************************************/
+.reverse-row {
+    flex-direction: row-reverse;
+}
+
+.button--white {
+    background: #FFFFFF;
+    border: 2px solid #ffffff !important;
+    color: #001624;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+}
+
+.button--white:hover {
+    background: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 22, 36, 0.1);
+    transform: translateY(-1px);
+}
+
+.button--border {
+    border: 2px solid #ffffff !important;
+    color: #ffffff;
+    background: transparent;
+    padding: 10px 16px !important;
+}
+
+.button--border:hover {
+    background: #ffffff;
+    color: #001624;
+}
+
+/********************************************************* End section hero *********************************************************/
+
+/********************************************************* Start section header *********************************************************/
+
+.header {
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 100px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 100;
+}
+
+.container__header {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-grow: 1;
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Logo */
+.header__logo {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.header__logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo-link:hover .header__logo {
+    transform: scale(1.05);
+}
+
+/* Navegación Desktop */
+.header__nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav__link {
+    color: #001624;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    padding: 12px 10px;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav__link:hover {
+    color: #377E7F;
+}
+
+/* Subrayado animado */
+.nav__link::after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: 2px;
+    background: #377E7F;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav__link:hover::after,
+.nav__link--current::after {
+    transform: scaleX(1);
+}
+
+.nav__link--current {
+    font-weight: 600;
+    color: #377E7F !important;
+}
+
+/* Botones Desktop (SOLO visible en escritorio) */
+.header__buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Botones Mobile (OCULTOS en escritorio) */
+.mobile-buttons {
+    display: none;
+}
+
+.button {
+    font-family: 'Manrope', sans-serif;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.button--login {
+    background: transparent;
+    color: #001624;
+    border: 1px solid transparent;
+}
+
+.button--login:hover {
+    color: #377E7F;
+    border: 1px solid #377E7F;
+}
+
+.button--primary {
+    background: #377E7F;
+    color: #FFFFFF;
+}
+
+.button--primary:hover {
+    background: #2a6364;
+    box-shadow: 0 4px 8px rgba(55, 126, 127, 0.2);
+}
+
+.button__icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Hamburguesa (oculto en desktop) */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000;
+}
+
+.hamburger__line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #001624;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/***** TABLET (769px - 1024px) *****/
+@media (max-width: 1024px) {
+    .header {
+        padding: 20px 40px;
+    }
+
+    .header__nav {
+        gap: 8px;
+    }
+
+    .nav__link {
+        padding: 10px 8px;
+        font-size: 15px;
+    }
+}
+
+/***** MÓVIL (≤768px) *****/
+@media (max-width: 768px) {
+    .header {
+        padding: 16px 24px;
+    }
+
+    /* Mostrar hamburguesa */
+    .hamburger {
+        display: block;
+        order: 2;
+    }
+
+    /* Menú móvil */
+    .header__nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: #FFFFFF;
+        flex-direction: column;
+        padding: 80px 24px 24px;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+        z-index: 999;
+        gap: 0;
+    }
+
+    .header__nav.active {
+        left: 0;
+    }
+
+    .nav__link {
+        width: 100%;
+        padding: 16px 10px;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 16px;
+    }
+
+    /* Mostrar botones móviles y ocultar desktop */
+    .mobile-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .header__buttons {
+        display: none;
+    }
+
+    /* Botones móviles */
+    .mobile-buttons .button {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+
+    /* Animación hamburguesa a X */
+    .hamburger.active .hamburger__line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .hamburger.active .hamburger__line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .hamburger__line:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    /* Ajustar logo */
+    .header__logo {
+        height: 32px;
+        margin-right: auto;
+    }
+}
+
+/***** ANIMACIONES Y ESTADOS *****/
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/***** PANTALLAS MUY PEQUEÑAS (≤425px) *****/
+@media (max-width: 425px) {
+    .header {
+        padding: 16px 20px;
+    }
+    
+    .header__nav {
+        width: 75%;
+        padding: 50px 16px 16px;
+    }
+    
+    .nav__link {
+        padding: 10px 10px;
+        font-size: 14px;
+    }
+    
+    .mobile-buttons .button {
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+}
+
+/********************************************************* End section header *********************************************************/

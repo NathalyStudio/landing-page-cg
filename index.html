@@ -4,35 +4,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Compound Savings Plan</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <!-- Aqui va el header-->
-  </header>
+  <header class="header">
+    <div class="container__header">
+        <!-- Logo -->
+        <a href="index.html" class="header__logo-link">
+            <img src="assets/images/Logo.svg" alt="Brand logo" class="header__logo">
+        </a>
+
+        <!-- Navegación -->
+        <nav class="header__nav">
+            <a href="#" class="nav__link nav__link--current">How It Works</a>
+            <a href="#" class="nav__link">Why Start A CSP</a>
+            <a href="#" class="nav__link">FAQ</a>
+            <a href="#" class="nav__link">Learning Hub</a>
+            <a href="#" class="nav__link">Support/Contact</a>
+            
+            <!-- ENLACES para móvil -->
+            <div class="mobile-buttons">
+                <a href="/login" class="button button--login">Login</a>
+                <a href="/signup" class="button button--primary">
+                    <span>Sign Up</span>
+                    <img src="assets/images/UserCircle.svg" alt="User_Image" class="button__icon">
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ENLACES para desktop -->
+    <div class="header__right">
+        <button class="hamburger" aria-label="Menu">
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+        </button>
+        
+        <div class="header__buttons">
+            <a href="/login" class="button button--login">Login</a>
+            <a href="/signup" class="button button--primary">
+                <span>Sign Up</span>
+                <img src="assets/images/UserCircle.svg" alt="User_Image" class="button__icon">
+            </a>
+        </div>
+    </div>
+</header>
   <main>
-    <section id="hero"></section>
-    <section id="why-start"></section>
-    <section id="banner-calculator"></section>
-    <section id="how-it-works"></section>
-    <section id="your-path"></section>
-    <section id="how-to-make"></section>
-    <section id="reach-your-goals"></section>
-    <section id="faq"></section>
-    <section id="tutorials"></section>
-    <footer>
-      <article class="contact">
-        <aside class="setup-a-call"></aside>
-        <aside class="phone-numbers"></aside>
-        <aside class="email-contact"></aside>
-      </article>
-
-      <article id="call-to-action-banner"></article>
-
-      <article id="footer-links"></article>
-
-      <div class="disclaimer"></div>
-    </footer>
+    <section id="hero">
+      <div class="container_fullview">
+        <div class="db-main-container background_00283C horizontal-content">
+          <div class="image-container">
+            <img src="assets/images/hero.png" alt="hero-image" class="hero__image">
+          </div>
+          <div class="text-container">
+            <div class="sub_text-container">
+              <h1 class="all_h1_heading"> Compound Savings Plan (CSP) </h1>
+              <paragraph class="text-paragraph">A Compound Savings Plan (CSP) is a pre-authorized plan that withdraws funds from an account you select, and deposits them into a Savings or Investment account on a regular schedule. It's free to set up, and you can start with as little as $50 per month.</paragraph>
+            </div>
+            <div class="sub_text-container vertical_view">
+              <div class="sub_text-container horizontal_view">
+                <img src="assets/images/Check.svg" alt="check" class="icon_image">
+                <h5 class="all_h5_heading"> Take advantage of compound savings growth </h5>
+              </div>
+              <div class="sub_text-container horizontal_view">
+                <img src="assets/images/Check.svg" alt="check" class="icon_image">
+                <h5 class="all_h5_heading"> Choose how you want to contribute </h5>
+              </div>
+              <div class="sub_text-container horizontal_view">
+                <img src="assets/images/Check.svg" alt="check" class="icon_image">
+                <h5 class="all_h5_heading"> Set goals and easily stick with them </h5>
+              </div>
+            </div>
+            <div class="sub_text-container set_gap-12 vertical_view--mobile">
+              <a href="/book-appointment" class="button reverse-row button--white">
+                <span>Book an Appointment</span>
+                <img src="assets/images/Calendar.svg" alt="calendar_Icon" class="button__icon">
+              </a>
+              
+              <a href="/contact" class="button button--border">Let Us Contact You</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Resto de tus secciones... -->
   </main>
 </body>
 </html>
+<script src="script.js"></script>
