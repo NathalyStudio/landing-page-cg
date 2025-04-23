@@ -22,3 +22,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// FAQ Toggle
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const faqItem = button.closest('.faq-item');
+        faqItem.classList.toggle('active');
+    });
+});
+
+// Show More/Less
+const showMoreBtn = document.getElementById('showMoreBtn');
+const faqContainer = document.querySelector('.faq-container');
+
+if (showMoreBtn && faqContainer) {
+    showMoreBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isExpanded = faqContainer.classList.toggle('show-all');
+        
+        // Animación suave al finalizar la transición
+        const handleTransitionEnd = () => {
+            faqContainer.removeEventListener('transitionend', handleTransitionEnd);
+        };
+        
+        faqContainer.addEventListener('transitionend', handleTransitionEnd);
+        
+        // Cambiar texto después de la transición
+        showMoreBtn.querySelector('span').textContent = isExpanded ? 'Show Less' : 'Show More';
+    });
+}
