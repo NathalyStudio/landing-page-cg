@@ -1,4 +1,112 @@
 /***** ESTILOS GENERALES *****/
+/* Reset mejorado */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent; /* NEW: Mejorar experiencia táctil */
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%; /* NEW: Prevenir zoom en iOS */
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased; /* NEW: Mejor renderizado en Safari */
+    -moz-osx-font-smoothing: grayscale; /* NEW: Mejor renderizado en Firefox */
+}
+
+/* NEW: Fix para Firefox */
+@-moz-document url-prefix() {
+    .hero__image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Nuevas reglas para enlaces con estilo de botón */
+a.button {
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    border: none;
+    transition: all 0.3s ease;
+    align-items: center;
+    gap: 8px;
+    -webkit-appearance: none; /* NEW: Eliminar estilos nativos en Safari */
+}
+
+/* Flexbox seguro para Safari */
+.horizontal-content {
+    display: -webkit-flex; /* NEW */
+    display: flex;
+    -webkit-flex-direction: row; /* NEW */
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Grid moderno con soporte antiguo */
+.grid-container {
+    display: -ms-grid; /* NEW */
+    display: grid;
+    -ms-grid-columns: (1fr)[3]; /* NEW */
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Animaciones seguras */
+.faq-answer {
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* NEW */
+}
+
+/* Menú móvil mejorado */
+.header__nav {
+    transition: transform 0.3s ease;
+    -webkit-transition: -webkit-transform 0.3s ease; /* NEW */
+}
+
+/* Resto de tu CSS original... */
+[Todo tu CSS existente se mantiene igual aquí...]
+
+/* NEW: Correcciones específicas para Safari */
+@supports (-webkit-touch-callout: none) {
+    .container_fullview {
+        height: -webkit-fill-available;
+    }
+    .video-container {
+        -webkit-transform: translateZ(0);
+    }
+}
+
+/* NEW: Media queries mejoradas para Safari */
+@media screen and (max-width: 768px) {
+    .header__nav {
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+    }
+}
+
+/* NEW: Prefijos para transiciones */
+.nav__link::after {
+    transition: transform 0.3s ease;
+    -webkit-transition: -webkit-transform 0.3s ease; /* NEW */
+}
+
+/* NEW: Prefijos para transformaciones */
+.hamburger.active .hamburger__line:nth-child(1) {
+    -webkit-transform: rotate(45deg) translate(5px, 6px); /* NEW */
+    transform: rotate(45deg) translate(5px, 6px);
+}
+/***** ESTILOS GENERALES *****/
 body {
     font-family: 'Manrope', sans-serif;
     margin: 0;
@@ -115,7 +223,7 @@ a.button:focus {
 }
 
 .image-container {
-    width: 55%; /* Cambiado a un tamaño por defecto */
+    width: 100% !important; /* Cambiado a un tamaño por defecto */
     height: auto;
     position: relative;
     overflow: hidden;
@@ -417,7 +525,7 @@ a.button:focus {
 .image-container img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 /********************** FAQ Styles **********************************/
 .faq-container {
