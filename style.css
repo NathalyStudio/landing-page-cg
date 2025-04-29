@@ -99,6 +99,20 @@ a.button:focus {
     align-items: center !important;
     padding: 0 !important;
 }
+.align--left {
+    text-align: left;
+    align-items: center !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: left !important;
+}
+.align-all-left {
+    text-align: left;
+    align-items: self-start !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: left !important;
+}
 
 .image-container {
     width: 55%; /* Cambiado a un tamaño por defecto */
@@ -106,7 +120,24 @@ a.button:focus {
     position: relative;
     overflow: hidden;
 }
-
+.sub-container--image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+}
+.sub-container-horizontal--image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: start;    
+    flex-direction: row;
+    gap: 8px;
+}
 .hero__image {
     width: 100%;
     height: 100%;
@@ -123,6 +154,7 @@ a.button:focus {
     width: 48px;
     height: 48px;
 }
+
 .text-container {
     padding: 120px 100px 120px 48px; /* Ajustado para pantallas grandes */
     display: flex;
@@ -140,6 +172,18 @@ a.button:focus {
     align-items: flex-start;
     gap: 24px;
     max-width: 60%; /* Ajustado para pantallas grandes */
+}
+.set--width-auto {
+    width: auto !important;
+}
+.set--width-80 {
+    max-width: 80% !important;
+}
+.set--width-70 {
+    width: 70% !important;
+}
+.set--width-30 {
+    width: 30% !important;
 }
 .align--center {
     text-align: center;
@@ -215,11 +259,21 @@ a.button:focus {
     max-width: 100%;
     margin: 0 auto;
 }
+.no--padding-grid {
+    padding: 0 !important;
+}
 /* Items del grid */
 .grid-item {
     background: #FFFFFF;
     border: 1px solid #E0E0E0;
     box-shadow: 0 1px 84.6px rgba(0, 0, 0, 0.17);
+    border-radius: 8px; /* Añadido para mejor apariencia */
+    overflow: hidden; /* Para que el border-radius funcione con el contenido */
+}
+.grid-item--footer-design {
+    background: transparent;
+    /*border: 1px solid #E0E0E0;
+    box-shadow: 0 1px 84.6px rgba(0, 0, 0, 0.17);*/
     border-radius: 8px; /* Añadido para mejor apariencia */
     overflow: hidden; /* Para que el border-radius funcione con el contenido */
 }
@@ -272,6 +326,45 @@ a.button:focus {
     gap: 12px !important;
     align-items: start !important;
 }
+.item-content--footer-design {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.item-content--footer-design--left {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 20px;
+}
+.item-content--footer-design-horizontal {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: self-start;
+    gap: 16px;
+}
+.vertical-line {
+    position: relative;
+}
+
+.vertical-line::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 201px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2); /* Opacidad del 20% */
+    opacity: 0.2;
+}
 
 /********************** Fondo de la tarjeta **********************************/
 .card-background {
@@ -300,6 +393,31 @@ a.button:focus {
     justify-content: center;
     align-items: center;
     gap: 24px;
+}
+.sub-wrapper--footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+/********************** image link styles **********************************/
+/* Asegurar que los enlaces-imagen tengan el mismo comportamiento que los contenedores originales */
+.image-container {
+    display: block;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover {
+    opacity: 0.8;
+}
+
+/* Mantener alineación de imágenes */
+.image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 /********************** FAQ Styles **********************************/
 .faq-container {
@@ -380,6 +498,199 @@ a.button:focus {
 .show-all .hidden-faq {
     max-height: 1000px; /* Ajusta según el contenido máximo */
     opacity: 1;
+}
+/******************************Video styles*****************************************/
+/* Personalización de video */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación 16:9 */
+    height: 0;
+}
+
+.custom-video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 12px;
+    pointer-events: auto; /* Permitir clics directos en el video */
+
+}
+
+/* Títulos visibles */
+.video-title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #3D3D3D;
+    margin: 15px 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: transparent;/*(255, 255, 255, 0.9);*/
+    padding: 12px;
+    border-radius: 0 0 12px 12px;
+    text-align: center;
+}
+
+/* Reproductor moderno */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex; /* Asegurar que siempre sea flex */
+    pointer-events: none; /* Permitir clics a través del overlay */
+    transition: opacity 0.3s;
+
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    border: none;
+    background: rgba(0, 0, 0, 0.7) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="36px" height="36px"><path d="M8 5v14l11-7z"/></svg>') center no-repeat;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: flex; /* Cambiar a flex para mejor control */
+    pointer-events: auto; /* Permitir clics solo en el botón */
+
+
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+}
+
+/* Ocultar controles nativos */
+.custom-video-player::-webkit-media-controls {
+    display: none !important;
+}
+/******************************** Footer ********************************/
+/* Footer Styles */
+footer {
+    width: 100%;
+    height: 100%;
+}
+.footer-container--fullview {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.footer-vertical-content--background001624 {
+    background-color: #001624;
+    padding: 32px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.footer-vertical-content--background00283C {
+    background-color: #00283C;
+    padding: 32px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;   
+}
+.footer-horizontal-content--background00283C {
+    background-color: #00283C;
+    padding: 32px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+}
+.footer-horizontal-content--background001624 {
+    background-color: #001624;
+    padding: 32px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: start;
+    gap: 20px;
+}
+.gap--20 {
+    gap: 20% !important;
+}
+.text-container--footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+}
+/*****************************Footer Styles ***************************************************/
+.image--button-footer {
+    width: 60px !important; /* Tamaño fijo */
+    height: 60px !important; /* Tamaño fijo */
+    object-fit: contain; /* Asegura que la imagen se escale proporcionalmente */
+    padding: 8px; /* Espacio interno opcional */
+}
+
+.image-container.set--width-70 {
+    width: 80px !important; /* Contenedor ligeramente más grande que la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.brand-image { 
+    width: 100%;
+    height: 40px;
+    object-fit: fill; /* Asegura que la imagen se escale proporcionalmente */
+}
+
+/* Grid específico para footer */
+.grid-container-footer {
+    display: grid;
+    width: 100%;
+    gap: 30px;
+    padding: 0;
+}
+.set--width-70-footer {
+    width: 70% !important;
+}
+
+/* Desktop: 4 columnas con la última más ancha */
+@media (min-width: 1024px) {
+    .grid-container-footer {
+        grid-template-columns: repeat(3, 1fr) 2fr;
+    }
+}
+
+/* Tablet: 2 columnas */
+@media (max-width: 1023px) and (min-width: 769px) {
+    .grid-container-footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: 1 columna */
+@media (max-width: 768px) {
+    .grid-container-footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 426px) {
+    .grid-container-footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
 /**********************************************************************/
 .horizontal-content--background377E7F {
@@ -464,6 +775,9 @@ a.button:focus {
 .hide--image {
     display: none;
 }
+.margin-left {
+    margin-left: 0px !important;
+}
 /* Media Queries (de mayor a menor) */
 @media (max-width: 2560px) {
     .horizontal-content--more-gap {
@@ -498,6 +812,12 @@ a.button:focus {
         overflow: hidden;
         text-decoration: none;
         transition: transform 0.3s ease;
+    }
+    .set--width-70 {
+        width: 30% !important;
+    }
+    .set--display-flex-column {
+        gap: 34px !important;
     }
 }
 /* 1900px+ (Desktop grandes) */
@@ -557,7 +877,9 @@ a.button:focus {
         background-color: #00283C;
         padding: 84px 120px 48px 120px; /* Simplificado */
     }
-
+    .set--width-70 {
+        width: 45% !important;
+    }
 }
 
 /* 1024px - 1279px (Laptops pequeñas) */
@@ -616,7 +938,9 @@ a.button:focus {
         max-width: 100%;
         margin: 0 auto;
     }
-
+    .set--width-70 {
+        width: 70% !important;
+    }
 }
 
 /* 768px - 1023px (Tablets grandes) */
@@ -711,7 +1035,92 @@ a.button:focus {
         text-align: left;
         width: calc(100% - 40px); /* Añadir para espacio del icono */
     }
-
+    .video-title {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        color: #3D3D3D;
+        margin: 15px 20px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: transparent;/*(255, 255, 255, 0.9);*/
+        padding: 12px;
+        border-radius: 0 0 12px 12px;
+        text-align: center;
+    }
+    .footer-vertical-content--background001624 {
+        background: #001624;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .footer-vertical-content--background00283C {
+        background: #00283C;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;   
+    }
+    .footer-horizontal-content--background00283C {
+        background: #00283C;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+    .footer-horizontal-content--background001624 {
+        background-color: #001624;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: start;
+        gap: 20px;
+    }
+    .item-content--footer-design-horizontal {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 0px;
+        padding-right: 0px;
+        display: flex    ;
+        flex-direction: row;
+        justify-content: start;
+        align-items: self-start;
+        gap: 16px;
+    }
+    .set--width-70 {
+        width: auto !important;
+        display: flex;
+        justify-content: stretch;
+        overflow: visible;
+    }
+    .set--width-30 {
+        width:40% !important;
+    }
+    .gap--20 {
+        gap: 10% !important;
+    }
 }
 
 /* 595px - 767px (Tablets pequeñas) */
@@ -797,8 +1206,18 @@ a.button:focus {
         max-width: 100%;
         margin: 0 auto;
     }
-    
-
+    .set--display-flex-column {
+        display: flex;
+        flex-direction: column !important;
+        gap: 34px !important;
+    }
+    .button-arrow {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        margin-left: 2px;
+        display: none;
+    }
 }
 @media (max-width: 594px) {
     .grid-container {
@@ -902,6 +1321,16 @@ a.button:focus {
         align-items: stretch;
         gap: 16px;
     }
+    .all_h3_heading--left {
+        text-align: center !important;
+    }
+    .footer-horizontal-content--background001624 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px !important;
+    }
 }
 @media (max-width: 426px) {
     .vertical-content--more-gap {
@@ -919,6 +1348,73 @@ a.button:focus {
         color: #001624;
         text-align: left;
         width: calc(100% - 40px); /* Añadir para espacio del icono */
+    }
+    .video-title {
+        font-size: 16px;
+        text-align: center;
+    }
+    .set--width-80 {
+        max-width: 100% !important;
+    }
+    .set--width-70 {
+        width: auto !important;
+        display: flex;
+        justify-content: stretch;
+    }
+    .vertical-line {
+        position: unset;
+    }
+    .set--display-flex-column {
+        display: flex;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    .image--button-footer {
+        width: 50px !important; /* Tamaño fijo */
+        height: 50px !important; /* Tamaño fijo */
+        padding: 8px; /* Espacio interno opcional */
+    }
+    .set--width-90-only-mobile {
+        width: 90%;
+    }
+    .email-link {
+        max-width: 90% !important;
+    }
+    .item-content--footer-design--left {
+        padding: 0px;
+        width: 95%;
+        gap: 10px;
+    }
+    .sub-container--image {
+        gap: 0 !important;
+    }
+
+    .button--white span {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+    }
+    .text-size14-C2D2DC {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 400;
+        font-size: clamp(12px, 1.5vw, 14px);
+        line-height: 1.3;
+        color: #C2D2DC;
+        text-align: left;
+    }
+    .set--width-30 {
+        width: auto !important;
+    }
+    .set--width-70-footer {
+        width: 100% !important;
+    }
+    .grid-container-footer {
+        grid-row-gap: 20px;
+        grid-column: 15px;
+    }
+    
+    .hide--text-mobile {
+        display: none;
     }
 }
 /**************** headings style ****************/
@@ -938,7 +1434,7 @@ a.button:focus {
     font-weight: 700;
     font-size: clamp(24px, 3vw, 36px);
     line-height: clamp(1.1, 1.3vw, 1.3);
-    line-height: 46px;
+    line-height: 1.2;
     color: #FFFFFF;
     text-align: left;
 }
@@ -963,6 +1459,15 @@ a.button:focus {
     color: #FFFFFF;
     text-align: center;
 }
+.all_h3_heading--left {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 2vw, 32px);
+    line-height: clamp(1.2, 1.5vw, 1.3);
+    line-height: 1.1;
+    color: #FFFFFF;
+    text-align: left;
+}
 
 .semibold_size36_001624 {
     font-family: 'Manrope', sans-serif;
@@ -986,6 +1491,14 @@ a.button:focus {
     font-weight: 700;
     font-size: clamp(16px, 1.5vw, 24px);
     line-height: 30px;
+    color: #FFFFFF;
+    text-align: left;
+}
+.medium_size20_FFFFFF {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: clamp(16px, 1.5vw, 20px);
+    line-height: 1.2; /* Valor base bueno para móvil */
     color: #FFFFFF;
     text-align: left;
 }
@@ -1014,6 +1527,14 @@ a.button:focus {
     color: #FFFFFF;
     text-align: left;
 }
+.semibold_size16_ffffff { 
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.1; /* Valor base bueno para móvil */
+    color: #FFFFFF;
+    text-align: left;
+}
 .semibold_size16_00283C {
     font-family: 'Manrope', sans-serif;
     font-weight: 900;
@@ -1022,12 +1543,27 @@ a.button:focus {
     color: #00283C;
     text-align: center;
 }
-
+.light_size16_FFFFFF {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: 1.2; /* Valor base bueno para móvil */
+    color: #FFFFFF;
+    text-align: center;
+}
+.all_h6_heading {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: clamp(12px, 1.1vw, 13.5px);
+    line-height: 1.1; /* Valor base bueno para móvil */
+    color: #FFFFFF;
+    text-align: center;
+}
 /**************** paragraph style ****************/
 .text-paragraph {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: clamp(14px, 1.5vw, 18px);
+    font-size: clamp(14px, 1.3vw, 18px);
     line-height: 24px;
     color: #FFFFFF;
     text-align: left;
@@ -1080,6 +1616,22 @@ a.button:focus {
     color: #525252;
     text-align: left;
 }
+.text-size14-C2D2DC {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: clamp(12px, 1.1vw, 14px);
+    line-height: 1.05; /* Valor base bueno para móvil */
+    color: #C2D2DC;
+    text-align: left;
+}
+.text-size14-FFF9EA {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: clamp(12px, 1.1vw, 14px);
+    line-height: 1.3; /* Valor base bueno para móvil */
+    color: #FFF9EA;
+    text-align: left;
+}
 .center--text { 
     text-align: center;
 }
@@ -1098,18 +1650,76 @@ a.button:focus {
 .subtle-underline-link:hover {
     border-bottom-color: rgba(0, 40, 60, 0.6); /* Oscurece el subrayado al pasar el mouse */
 }
+.subtle-underline-white {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    transition: border-color 0.3s ease;
+}
+
+.subtle-underline-white:hover {
+    border-bottom-color: rgba(255, 255, 255, 0.7);
+}
+/* Agrega esta nueva clase */
+.email-link {
+    display: inline-block;
+    max-width: 100%;
+    word-break: break-all;
+    hyphens: none;
+    line-height: 1.4;
+}
+.store-link {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    /*max-width: 180px; /* Ajusta según necesidad */
+}
+
+.store-link:hover {
+    transform: translateY(-2px);
+}
+/********************************************************* list style *********************************************************/
+.custom-bullet-list {
+    list-style: none;
+    padding-left: 20px;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #F5F5F5;
+}
+.custom-bullet-list li {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.custom-bullet-list li::before {
+    content: "•";
+    color: #F5F5F5;
+    font-size: 16px;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
 /********************************************************* Start section hero *********************************************************/
 .reverse-row {
     flex-direction: row-reverse;
 }
-
+/* ========== ESTILOS EXISTENTES DE BOTONES ========== */
 .button--white {
     background: #FFFFFF;
     border: 2px solid #ffffff !important;
     color: #001624;
     padding: 10px 16px !important;
     transition: all 0.3s ease;
+    /* Nuevos estilos agregados */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
 }
+
 .button--white--212121 {
     font-size: 18px;
     background: #FFFFFF;
@@ -1124,6 +1734,7 @@ a.button:focus {
     box-shadow: 0 4px 8px rgba(0, 22, 36, 0.1);
     transform: translateY(-1px);
 }
+
 .button--white--212121:hover {
     background: #f0f0f0;
     box-shadow: 0 4px 8px rgba(0, 22, 36, 0.1);
@@ -1141,7 +1752,7 @@ a.button:focus {
     background: #ffffff;
     color: #001624;
 }
-/* Nueva variante con el color #377E7F */
+
 .button--green {
     background: #377E7F !important;
     border: 2px solid #377E7F !important;
@@ -1149,7 +1760,6 @@ a.button:focus {
     padding: 12px 24px !important;
 }
 
-/* Estados hover y active */
 .button--green:hover {
     background: #2c6566 !important;
     border-color: #2c6566 !important;
@@ -1159,7 +1769,7 @@ a.button:focus {
     background: #214d4d !important;
     border-color: #214d4d !important;
 }
-/* Nuevo estilo outline */
+
 .button--outline {
     background: #FFFFFF !important;
     border: 1px solid #00283C !important;
@@ -1178,6 +1788,36 @@ a.button:focus {
     border-color: #001624 !important;
 }
 
+/* ========== NUEVOS ESTILOS AGREGADOS ========== */
+.button--white span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.button-separator {
+    color: inherit;
+    padding: 0 4px;
+    font-weight: 300;
+    opacity: 0.7;
+}
+
+.button-arrow {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-left: 2px; /* Separación adicional opcional */
+}
+
+/* Animación al hacer hover */
+.button--white:hover .button-arrow {
+    transform: translateX(4px); /* Movimiento más pronunciado */
+}
+
+/* Opcional: Efecto suave en el separador */
+.button--white:hover .button-separator {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
 /********************************************************* End section hero *********************************************************/
 
 /********************************************************* Start section header *********************************************************/
@@ -1461,5 +2101,4 @@ body.menu-open {
         font-size: 14px;
     }
 }
-
 /********************************************************* End section header *********************************************************/

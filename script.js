@@ -50,3 +50,46 @@ if (showMoreBtn && faqContainer) {
         showMoreBtn.querySelector('span').textContent = isExpanded ? 'Show Less' : 'Show More';
     });
 }
+
+// video player mejorado
+document.querySelectorAll('.video-container').forEach(container => {
+    const video = container.querySelector('video');
+    const overlay = container.querySelector('.video-overlay');
+    const playBtn = container.querySelector('.play-button');
+    
+    const togglePlay = () => {
+        // Pausar todos los demás videos
+        document.querySelectorAll('.video-container video').forEach(otherVideo => {
+            if(otherVideo !== video) {
+                otherVideo.pause();
+                otherVideo.parentElement.querySelector('.play-button').style.display = 'flex';
+                otherVideo.parentElement.querySelector('.video-overlay').style.opacity = '1';
+            }
+        });
+
+        if(video.paused) {
+            video.play();
+            playBtn.style.display = 'none';
+            overlay.style.opacity = '0'; // Ocultar overlay
+        } else {
+            video.pause();
+            playBtn.style.display = 'flex';
+            overlay.style.opacity = '1'; // Mostrar overlay
+        }
+    };
+
+    // Control de clic en overlay y botón
+    overlay.addEventListener('click', togglePlay);
+    
+    // Control de clic directo en el video
+    video.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evitar que active el clic del overlay
+        togglePlay();
+    });
+    
+    // Restaurar controles al terminar el video
+    video.addEventListener('ended', () => {
+        playBtn.style.display = 'flex';
+        overlay.style.opacity = '1';
+    });
+});
