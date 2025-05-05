@@ -54,7 +54,14 @@ a.button {
     gap: 20px;
     width: 100%;
 }
-
+.horizontal-content--reverse-row {
+    display: -webkit-flex; /* NEW */
+    display: flex;
+    -webkit-flex-direction: row-reverse; /* NEW */
+    flex-direction: row-reverse;
+    gap: 20px;
+    width: 100%;
+}
 /* Grid moderno con soporte antiguo */
 .grid-container {
     display: -ms-grid; /* NEW */
@@ -76,7 +83,6 @@ a.button {
 }
 
 /* Resto de tu CSS original... */
-[Todo tu CSS existente se mantiene igual aquí...]
 
 /* NEW: Correcciones específicas para Safari */
 @supports (-webkit-touch-callout: none) {
@@ -175,6 +181,13 @@ a.button:focus {
     width: 100%;
     height: 100%;
 }
+.db-main-container--setdisplay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse !important;
+}
 
 .horizontal-content {
     display: flex;
@@ -228,6 +241,11 @@ a.button:focus {
     position: relative;
     overflow: hidden;
 }
+.image-wrapper {
+    flex: 1;
+    max-width: 50%; /* Control preciso del ancho */
+    position: relative;
+}
 .sub-container--image {
     width: 100%;
     height: 100%;
@@ -271,6 +289,15 @@ a.button:focus {
     align-items: flex-start;
     gap: 24px;
     max-width: 50%; /* Ajustado para pantallas grandes */
+}
+.text-container--reverse-row {
+    padding: 120px 48px 120px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    max-width: 50%;
 }
 .text-container--nopadding {
     /*padding: 120px 100px 120px 48px; /* Ajustado para pantallas grandes */
@@ -355,7 +382,7 @@ a.button:focus {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px; /* Espacio entre columnas */
     padding: 24px;
-    max-width: 1200px;
+    /*max-width: 1200px;*/
     margin: 0 auto;
 }
 .grid-container--card {
@@ -369,6 +396,7 @@ a.button:focus {
 }
 .no--padding-grid {
     padding: 0 !important;
+    
 }
 /* Items del grid */
 .grid-item {
@@ -439,11 +467,13 @@ a.button:focus {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     gap: 20px;
 }
 .item-content--footer-design--left {
-    padding: 20px;
+    padding-left: 0px;
+    padding-top: 20px;
+    padding-right: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -927,6 +957,12 @@ footer {
     .set--display-flex-column {
         gap: 34px !important;
     }
+    .image-wrapper {
+        flex: 1;
+        max-width: 50%; /* Control preciso del ancho */
+        position: relative;
+        max-height: 35% !important;
+    }
 }
 /* 1900px+ (Desktop grandes) */
 @media (max-width: 1900px) {
@@ -947,6 +983,12 @@ footer {
         overflow: hidden;
         text-decoration: none;
         transition: transform 0.3s ease;
+    }
+    .image-wrapper {
+        flex: 1;
+        max-width: 50%; /* Control preciso del ancho */
+        position: relative;
+        max-height: 35% !important;
     }
 }
 /* 1280px+ (Desktop grandes) */
@@ -1229,6 +1271,33 @@ footer {
     .gap--20 {
         gap: 10% !important;
     }
+      /* Contenedor principal */
+  .db-main-container--setdisplay.horizontal-content--reverse-row {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+
+  /* Contenedor de imagen */
+  .image-wrapper {
+    max-width: 100% !important;
+    width: 100%;
+    height: auto;
+    order: 1; /* Fuerza la imagen a aparecer primero */
+  }
+  .text-container--reverse-row {
+    max-width: 100% !important;
+    width: 100%;
+    padding: 0 20px 40px !important;
+    order: 2; /* Fuerza el texto a aparecer después */
+    box-sizing: border-box;
+  }
+  .hero__image {
+    width: 100%;
+    max-height: 500px;
+    height: auto;
+    min-height: 300px; /* Altura mínima para mobile */
+    object-fit: cover;
+  }
 }
 
 /* 595px - 767px (Tablets pequeñas) */
@@ -1439,6 +1508,15 @@ footer {
         align-items: center;
         gap: 20px !important;
     }
+    .regular_size16_ffffff {
+    text-align: center;
+    }
+    .extrabold_size64_ffffff {
+        text-align: center;
+    }
+    .align--center-mobile-view {
+        text-align: center !important;
+    }
 }
 @media (max-width: 426px) {
     .vertical-content--more-gap {
@@ -1536,6 +1614,15 @@ footer {
     text-align: left;
     padding: 0%;
 }
+.extrabold_size64_ffffff {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: clamp(32px, 4vw, 64px);
+    line-height: 1.2;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 0%;
+}
 
 .all_h2_heading {
     font-family: 'Manrope', sans-serif;
@@ -1563,7 +1650,7 @@ footer {
     font-weight: 700;
     font-size: clamp(22px, 2vw, 32px);
     line-height: clamp(1.2, 1.5vw, 1.3);
-    line-height: 40px;
+    line-height: 1.2;
     color: #FFFFFF;
     text-align: center;
 }
@@ -1639,6 +1726,14 @@ footer {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.1; /* Valor base bueno para móvil */
+    color: #FFFFFF;
+    text-align: left;
+}
+.regular_size16_ffffff { 
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: clamp(12px, 1.2vw, 16px);
     line-height: 1.1; /* Valor base bueno para móvil */
     color: #FFFFFF;
     text-align: left;
@@ -2210,3 +2305,4 @@ body.menu-open {
     }
 }
 /********************************************************* End section header *********************************************************/
+/**************************image intelligence system *************************/

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earn</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    </head>
+    <body> 
+    <div id="header-container"></div>
+
+    <main>
+            <section id="hero">
+                <div class="container_fullview">
+                <div class="db-main-container--setdisplay background_00283C horizontal-content--reverse-row">
+                <div class="image-wrapper">
+                <img src="assets\images\hero-page-2.png" alt="hero-image" class="hero__image">
+                </div>
+                <div class="text-container--reverse-row">
+                <div class="sub_text-container">
+                    <h5 class="regular_size16_ffffff align--center-mobile-view">Your secure path to fixed income is just a few clicks away!</h5>
+                    <h1 class="extrabold_size64_ffffff align--center-mobile-view"> Earn 8.5% APY + $250 Bonus  </h1>
+                    <h2 class="all_h3_heading--left align--center-mobile-view">With Compound Real Estate Bonds</h2>
+                    <paragraph class="text-paragraph align--center-mobile-view">Sign up, invest $10,000 or more, hold for 90 days, and enjoy a $250 bonus along with daily compounded growth.</paragraph>
+                </div>
+                <div class="sub_text-container set_gap-12 vertical_view--mobile">
+                    <a href="/book-appointment" class="button reverse-row button--white">
+                    <span>Claim $250</span>
+                    </a>
+                </div>
+                </div>
+                </div>
+                </div>
+            </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        // Cargar Header
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+            initializeHeader();
+        });
+
+        // Cargar Footer
+        fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
