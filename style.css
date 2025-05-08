@@ -325,7 +325,12 @@ a.button:focus {
     align-items: center !important;
     
 }
-
+.set--width-50 {
+    width: 50% !important;
+}
+.set--width-100 {
+    width: 100% !important;
+}
 .sub_text-container {
     display: flex;
     flex-direction: column;
@@ -860,6 +865,24 @@ footer {
     padding-top: 5%;
     padding-bottom: 5%; 
 }
+.horizontal-content--background--image2 {
+    background-image: url('assets/images/image-background2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #377E7F; /* Fallback color */
+    border-radius: 16px;
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 40%;
+    padding-top: 5%;
+    padding-bottom: 5%; 
+}
 
 .card-container--background-fff-left {
     display: flex;
@@ -911,6 +934,9 @@ footer {
     max-width: 100% !important;
 }
 .hide--image {
+    display: none;
+}
+.hide {
     display: none;
 }
 .margin-left {
@@ -1465,6 +1491,23 @@ footer {
         padding-top: 60%;
         padding-bottom: 2.5%; 
     }
+    .horizontal-content--background--image2 {
+        background-size: contain;
+        background-position: top;
+        background-repeat: no-repeat;
+        background-color: #377E7F; /* Fallback color */
+        border-radius: 16px;
+        width: 100%;
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+        padding-top: 60%;
+        padding-bottom: 2.5%; 
+    }
     
     .card-container--background-fff-left {
         display: flex;
@@ -1840,6 +1883,11 @@ footer {
 }
 .left--text { 
     text-align: left;
+}
+.bold-text {
+    font-weight: 700;
+    /* O si usas una fuente específica: */
+    font-family: 'Manrope-Bold', sans-serif;
 }
 /********************************************************** start underline and link style **********************************************************/
 /* Agrega esto en tu hoja de estilos */
@@ -2305,4 +2353,112 @@ body.menu-open {
     }
 }
 /********************************************************* End section header *********************************************************/
-/**************************image intelligence system *************************/
+/**************************grid-container 6 cols *************************/
+/* Nuevo grid de 6 columnas */
+@media (max-width: 1920px) {
+.grid-6cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Responsive para el grid de 6 columnas */
+  @media (max-width: 1280px) {
+    .grid-6cols {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .grid-6cols {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .grid-6cols {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Ajustes específicos para los items en el nuevo grid */
+  #Why\ Choose\ CREB .grid-item {
+    height: auto;
+    min-height: 200px;
+  }
+  
+  #Why\ Choose\ CREB .item-content {
+    padding: 20px;
+    gap: 15px;
+  }
+}
+
+/***************************#How-it-Works********************************/
+/*************************** #How-it-Works ********************************/
+#How-it-Works .sub-card-container--text-horizontal.no--border  {
+    margin-bottom: 40px;
+}
+@media (max-width: 596px) {
+    /* Selector corregido */
+    #How-it-Works .db-main-container.background_F5F5F5.horizontal-content--more-gap {
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+        width: 100%;
+        align-items: center;
+    }
+    
+    /* Añadir estos ajustes para mobile */
+    #How-it-Works .image-container.set--width-100 {
+        order: -1;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    #How-it-Works .text-container--nopadding.set--width-50 {
+        width: 100% !important;
+        padding: 0 20px;
+    }
+    #How-it-Works .sub-card-container--text-horizontal.no--border  {
+        margin-bottom: 20px;
+    }
+    #How-it-Works .background__image {
+        display: block;
+        width: 80%;
+        height: 600px;
+    }
+}
+@media (max-width: 426px) {
+    #How-it-Works .background__image {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+/*****************#banner-promo******************/
+#banner-promos .horizontal-content--background377E7F {
+    background-image: url('assets/images/liquidity.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: contain; /* Para que se adapte sin deformar */
+/* o */
+    background-size: 20% auto; /* 30% del ancho del contenedor */
+    position: relative;
+    min-height: 200px; /* Altura mínima para la sección */
+    padding: 20px; /* Espacio interno para el contenido */
+    
+}
+#banner-promos .horizontal-content--background377E7F::before {
+    content: "";
+    background-image: url('tu-imagen.jpg');
+    background-size: 150px; /* Tamaño de la imagen */
+    width: 150px; 
+    height: 150px;
+    position: absolute;
+    right: -20px; /* Mueve 20px fuera del contenedor (derecha) */
+    bottom: -20px; /* Mueve 20px fuera del contenedor (abajo) */
+    z-index: 0; /* Opcional: para que el contenido quede encima */
+}
+@media (max-width: 768px) {
+    #banner-promos .horizontal-content--background377E7F {
+        background-size: 30% auto; /* Reduce tamaño en móviles */
+    }
+}
